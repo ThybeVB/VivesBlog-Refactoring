@@ -22,30 +22,28 @@ namespace VivesBlog.Core
                 People.Add(bavoAuthor);
                 People.Add(johnAuthor);
 
-                var firstArticle = new Article
+                Articles.AddRange(new List<Article>
                 {
-                    Id = 1,
-                    Title = "First article title",
-                    Description = "Short description of first article",
-                    Content = "The first article",
-                    AuthorId = bavoAuthor.Id,
-                    Author = bavoAuthor,
-                    CreatedDate = DateTime.Now
-                };
-
-                var secondArticle = new Article
-                {
-                    Id = 2,
-                    Title = "Second article title",
-                    Description = "Short description of second article",
-                    Content = "The second article",
-                    AuthorId = johnAuthor.Id,
-                    Author = johnAuthor,
-                    CreatedDate = DateTime.Now.AddHours(-4)
-                };
-
-                Articles.Add(firstArticle);
-                Articles.Add(secondArticle);
+                    new Article {
+                        Id = 1,
+                        Title = "First article title",
+                        Description = "Short description of first article",
+                        Content = "The first article",
+                        AuthorId = bavoAuthor.Id,
+                        Author = bavoAuthor,
+                        CreatedDate = DateTime.Now
+                    },
+                    new Article
+                    {
+                        Id = 2,
+                        Title = "Second article title",
+                        Description = "Short description of second article",
+                        Content = "The second article",
+                        AuthorId = johnAuthor.Id,
+                        Author = johnAuthor,
+                        CreatedDate = DateTime.Now.AddHours(-4)
+                    }
+                });
 
                 SaveChanges();
             }
